@@ -1,16 +1,23 @@
 "use client";
 
 import { usePathname } from "next/navigation";
+import { useState } from "react";
 import styles from "./navbar.module.css";
 import {
+  MdBedtime,
   MdNotifications,
-  MdOutlineChat,
   MdPublic,
   MdSearch,
+  MdSunny,
 } from "react-icons/md";
 
 const Navbar = () => {
   const pathname = usePathname();
+  const [isBedtime, setIsBedtime] = useState(true);
+
+  const toggleMode = () => {
+    setIsBedtime(!isBedtime);
+  };
 
   return (
     <div className={styles.container}>
@@ -21,7 +28,7 @@ const Navbar = () => {
           <input type="text" placeholder="Buscar..." className={styles.input} />
         </div>
         <div className={styles.icons}>
-          <MdOutlineChat size={20} />
+          {isBedtime ? <MdBedtime size={20} onClick={toggleMode} /> : <MdSunny size={20} onClick={toggleMode} />}
           <MdNotifications size={20} />
           <MdPublic size={20} />
         </div>
