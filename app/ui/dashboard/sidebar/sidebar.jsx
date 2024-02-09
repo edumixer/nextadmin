@@ -1,19 +1,18 @@
 import Image from "next/image";
-import MenuLink from "./menuLink/menuLink";
-import styles from "./sidebar.module.css";
 import {
-  MdDashboard,
-  MdSupervisedUserCircle,
-  MdShoppingBag,
-  MdAttachMoney,
-  MdWork,
   MdAnalytics,
-  MdPeople,
-  MdOutlineSettings,
+  MdAttachMoney,
+  MdDashboard,
   MdHelpCenter,
   MdLogout,
+  MdOutlineSettings,
+  MdPeople,
+  MdShoppingBag,
+  MdSupervisedUserCircle,
+  MdWork,
 } from "react-icons/md";
-
+import MenuLink from "./menuLink/menuLink";
+import styles from "./sidebar.module.css";
 
 const menuItems = [
   {
@@ -82,7 +81,13 @@ const Sidebar = () => {
   return (
     <div className={styles.container}>
       <div className={styles.user}>
-        <Image src="/noavatar.png" alt="" width="50" height="50" />
+        <Image
+          className={styles.userImage}
+          src="/noavatar.png"
+          alt=""
+          width="50"
+          height="50"
+        />
         <div className={styles.userDetail}>
           <span className={styles.userName}>Educena</span>
           <span className={styles.userTitle}>Administrator</span>
